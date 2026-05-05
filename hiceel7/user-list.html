@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User List</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 flex h-screen overflow-hidden">
+
+    <aside class="w-64 bg-white border-r border-slate-200 flex flex-col h-full hidden md:flex">
+        <div class="h-16 flex items-center px-6 border-b border-slate-100">
+            <span class="text-xl font-bold text-blue-600 tracking-wider">UFE MOODLE</span>
+        </div>
+        <div class="flex-1 overflow-y-auto py-4">
+            <div class="px-6 mb-4 text-xs font-semibold text-slate-400 uppercase tracking-wider">Dashboards</div>
+            <a href="analytics.html" class="flex items-center px-6 py-2.5 text-sm font-medium text-slate-600 hover:bg-slate-50">
+                <i class="fa-solid fa-chart-pie w-5 mr-3 text-slate-400"></i> Analytics
+            </a>
+            
+            <div class="px-6 mt-6 mb-4 text-xs font-semibold text-slate-400 uppercase tracking-wider">Applications</div>
+            <a href="user-list.html" class="flex items-center px-6 py-2.5 text-sm font-medium text-blue-600 bg-blue-50 border-r-2 border-blue-600">
+                <i class="fa-regular fa-address-book w-5 mr-3 text-blue-500"></i> User List
+            </a>
+            <a href="projects-grid.html" class="flex items-center px-6 py-2.5 mt-2 text-sm font-medium text-slate-600 hover:bg-slate-50">
+                <i class="fa-solid fa-briefcase w-5 mr-3 text-slate-400"></i> Projects Grid
+            </a>
+        </div>
+    </aside>
+
+    <main class="flex-1 flex flex-col h-full overflow-hidden">
+        <header class="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-6 shrink-0">
+            <h1 class="text-lg font-semibold">User List</h1>
+            <div class="flex items-center pl-4 space-x-3">
+                <img src="https://i.pravatar.cc/150?img=47" alt="User" class="w-8 h-8 rounded-full">
+                <div class="text-right">
+                    <p class="text-sm font-medium text-slate-700 leading-none">Kate Dudley</p>
+                    <p class="text-xs text-slate-500 mt-1">Administrator</p>
+                </div>
+            </div>
+        </header>
+
+        <div class="flex-1 overflow-y-auto p-6">
+            <div class="bg-white border border-slate-200 rounded-lg shadow-sm">
+                <div class="p-5 flex justify-between items-center border-b border-slate-100">
+                    <h2 class="font-medium text-slate-800">Contact List <span class="text-slate-400 text-sm ml-1">(834)</span></h2>
+                    <div class="flex space-x-2">
+                        <button class="bg-blue-600 text-white px-4 py-2 rounded text-sm hover:bg-blue-700 transition"><i class="fa-solid fa-plus mr-2"></i> Add New</button>
+                    </div>
+                </div>
+                
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-slate-50/50 text-slate-500 text-sm border-b border-slate-100">
+                                <th class="p-4 w-10"><input type="checkbox" class="rounded border-slate-300"></th>
+                                <th class="p-4 font-medium">Name</th>
+                                <th class="p-4 font-medium">Position</th>
+                                <th class="p-4 font-medium">Email</th>
+                                <th class="p-4 font-medium">Tags</th>
+                                <th class="p-4 font-medium text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-sm">
+                            <tr class="border-b border-slate-50 hover:bg-slate-50/50">
+                                <td class="p-4"><input type="checkbox" class="rounded border-slate-300"></td>
+                                <td class="p-4 flex items-center space-x-3">
+                                    <img src="https://i.pravatar.cc/150?img=11" class="w-8 h-8 rounded-full">
+                                    <span class="font-medium text-slate-800">Donald Risher</span>
+                                </td>
+                                <td class="p-4 text-slate-600">UI/UX Designer</td>
+                                <td class="p-4 text-slate-600">DonaldRisher@ufe.edu.com</td>
+                                <td class="p-4 flex space-x-1">
+                                    <span class="bg-blue-50 text-blue-600 px-2 py-1 rounded text-xs">Photoshop</span>
+                                </td>
+                                <td class="p-4 text-center"><button class="text-slate-400"><i class="fa-solid fa-ellipsis"></i></button></td>
+                            </tr>
+                            <tr class="border-b border-slate-50 hover:bg-slate-50/50">
+                                <td class="p-4"><input type="checkbox" class="rounded border-slate-300"></td>
+                                <td class="p-4 flex items-center space-x-3">
+                                    <img src="https://i.pravatar.cc/150?img=12" class="w-8 h-8 rounded-full">
+                                    <span class="font-medium text-slate-800">Helen Barron</span>
+                                </td>
+                                <td class="p-4 text-slate-600">Frontend Developer</td>
+                                <td class="p-4 text-slate-600">HelenBarron@ufe.edu.com</td>
+                                <td class="p-4 flex space-x-1">
+                                    <span class="bg-sky-50 text-sky-600 px-2 py-1 rounded text-xs">Html</span>
+                                    <span class="bg-slate-100 text-slate-500 px-2 py-1 rounded text-xs">2 + more</span>
+                                </td>
+                                <td class="p-4 text-center"><button class="text-slate-400"><i class="fa-solid fa-ellipsis"></i></button></td>
+                            </tr>
+                            <tr class="border-b border-slate-50 hover:bg-slate-50/50">
+                                <td class="p-4"><input type="checkbox" class="rounded border-slate-300"></td>
+                                <td class="p-4 flex items-center space-x-3">
+                                    <img src="https://img-cdn.hltv.org/gallerypicture/YvXSdUbiBRyuAGu8WMo0mn.jpg?auto=compress&fm=avif&ixlib=java-2.1.0&q=75&w=500&s=91fe154bf8e37f1cb0b00c1f2e9126be"
+                                    class="w-8 h-8 rounded-full">
+                                    <span class="font-medium text-slate-800">Phillip Theorox</span>
+                                </td>
+                                <td class="p-4 text-slate-600">Backend Developer</td>
+                                <td class="p-4 text-slate-600">PhillipTheorox@ufe.edu.com</td>
+                                <td class="p-4 flex space-x-1">
+                                    <span class="bg-sky-50 text-sky-600 px-2 py-1 rounded text-xs">PHP</span>
+                                    <span class="bg-slate-100 text-slate-500 px-2 py-1 rounded text-xs">2 + more</span>
+                                </td>
+                                <td class="p-4 text-center"><button class="text-slate-400"><i class="fa-solid fa-ellipsis"></i></button></td>
+                            </tr>
+                            <tr class="border-b border-slate-50 hover:bg-slate-50/50">
+                                <td class="p-4"><input type="checkbox" class="rounded border-slate-300"></td>
+                                <td class="p-4 flex items-center space-x-3">
+                                    <img src="https://img-cdn.hltv.org/gallerypicture/KcfMqval5gb_knd_Sh-hmw.jpg?auto=compress&fm=avif&ixlib=java-2.1.0&q=75&w=500&s=a1b9bfa314ed8b952b645277ed8714f6" class="w-8 h-8 rounded-full">
+                                    <span class="font-medium text-slate-800">Justin Mclain</span>
+                                </td>
+                                <td class="p-4 text-slate-600">Fullstack developer</td>
+                                <td class="p-4 text-slate-600">JustinMcgain@ufe.edu.com</td>
+                                <td class="p-4 flex space-x-1">
+                                    <span class="bg-blue-50 text-blue-600 px-2 py-1 rounded text-xs">Ruby</span>
+                                    <span class="bg-blue-50 text-blue-600 px-2 py-1 rounded text-xs">PHp</span>
+                                </td>
+                                <td class="p-4 text-center"><button class="text-slate-400"><i class="fa-solid fa-ellipsis"></i></button></td>
+                            </tr> 
+                            <tr class="border-b border-slate-50 hover:bg-slate-50/50">
+                                <td class="p-4"><input type="checkbox" class="rounded border-slate-300"></td>
+                                <td class="p-4 flex items-center space-x-3">
+                                    <img src="https://img-cdn.hltv.org/gallerypicture/9F4kXaQuhgJkP36cy54L65.jpg?auto=compress&fm=avif&ixlib=java-2.1.0&m=%2Fm.png&mw=160&mx=30&my=710&q=75&w=1200&s=3d71838f57a449276d8364f2b450d5c2" class="w-8 h-8 rounded-full">
+                                    <span class="font-medium text-slate-800">Sharon Carver</span>
+                                </td>
+                                <td class="p-4 text-slate-600">Frontend developer</td>
+                                <td class="p-4 text-slate-600">SharonCarver@ufe.edu.com</td>
+                                <td class="p-4 flex space-x-1">
+                                    <span class="bg-blue-50 text-blue-600 px-2 py-1 rounded text-xs">css</span>
+                                    <span class="bg-blue-50 text-blue-600 px-2 py-1 rounded text-xs">Html</span>
+                                </td>
+                                <td class="p-4 text-center"><button class="text-slate-400"><i class="fa-solid fa-ellipsis"></i></button></td>
+                            </tr>
+                            <tr class="border-b border-slate-50 hover:bg-slate-50/50">
+                                <td class="p-4"><input type="checkbox" class="rounded border-slate-300"></td>
+                                <td class="p-4 flex items-center space-x-3">
+                                    <img src="https://img-cdn.hltv.org/gallerypicture/9FKSQuOdR_iUyt4lf0jaqz.jpg?auto=compress&fm=avif&ixlib=java-2.1.0&m=%2Fm.png&mw=160&mx=30&my=710&q=75&w=1200&s=e6d18cc2a875ea90849f393646f6672b" class="w-8 h-8 rounded-full">
+                                    <span class="font-medium text-slate-800">Gerald Royer</span>
+                                </td>
+                                <td class="p-4 text-slate-600">Backend developer</td>
+                                <td class="p-4 text-slate-600">GeraldRoyer@ufe.edu.com</td>
+                                <td class="p-4 flex space-x-1">
+                                    <span class="bg-blue-50 text-blue-600 px-2 py-1 rounded text-xs">Javascript</span>
+                                    <span class="bg-blue-50 text-blue-600 px-2 py-1 rounded text-xs">Php</span>
+                                </td>
+                                <td class="p-4 text-center"><button class="text-slate-400"><i class="fa-solid fa-ellipsis"></i></button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

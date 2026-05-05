@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>http://127.0.0.1:5500/hiceel7/analytics.html</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+body { font-family: 'Inter', sans-serif; }
+</style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 flex h-screen overflow-hidden">
+
+<aside class="w-64 bg-white border-r border-slate-200 flex flex-col h-full hidden md:flex">
+    <div class="h-16 flex items-center px-6 border-b border-slate-100">
+        <span class="text-xl font-bold text-blue-600 tracking-wider">UFE MOODLE</span>
+    </div>
+    <div class="flex-1 overflow-y-auto py-4">
+        <div class="px-6 mb-4 text-xs font-semibold text-slate-400 uppercase tracking-wider">Dashboards</div>
+        <a href="analytics.html" class="flex items-center px-6 py-2.5 text-sm font-medium text-blue-600 bg-blue-50 border-r-2 border-blue-600">
+            <i class="fa-solid fa-chart-pie w-5 mr-3"></i> Analytics
+        </a>
+        
+        <div class="px-6 mt-6 mb-4 text-xs font-semibold text-slate-400 uppercase tracking-wider">Applications</div>
+        <a href="user-list.html" class="flex items-center px-6 py-2.5 text-sm font-medium text-slate-600 hover:bg-slate-50">
+            <i class="fa-regular fa-address-book w-5 mr-3 text-slate-400"></i> User List
+        </a>
+        <a href="projects-grid.html" class="flex items-center px-6 py-2.5 mt-2 text-sm font-medium text-slate-600 hover:bg-slate-50">
+            <i class="fa-solid fa-briefcase w-5 mr-3 text-slate-400"></i> Projects Grid
+        </a>
+    </div>
+</aside>
+
+<!-- MAIN -->
+<main class="flex-1 flex flex-col h-full overflow-hidden">
+
+<header class="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-6">
+    <h1 class="text-lg font-semibold">Analytics</h1>
+</header>
+
+<div class="flex-1 overflow-y-auto p-6">
+
+<div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+
+  <!-- MAIN LINE CHART + SUB BAR -->
+  <div class="lg:col-span-3 bg-white border border-slate-200 rounded-lg shadow-sm p-6 flex flex-col">
+      <h2 class="font-semibold mb-4">Daily Active Users</h2>
+
+      <!-- Line Chart -->
+      <div class="h-[300px] mb-6">
+          <canvas id="analyticsChart"></canvas>
+      </div>
+
+      <!-- New Bar Chart Below Line -->
+      <div class="h-[250px]">
+          <canvas id="subBarChart"></canvas>
+      </div>
+  </div>
+
+  <!-- RIGHT SIDE charts stacked -->
+  <div class="lg:col-span-1 grid grid-cols-1 gap-6">
+
+      <div class="bg-white border border-slate-200 rounded-lg shadow-sm p-5 flex justify-between items-center">
+          <div>
+              <p class="text-slate-500 text-xs">Users</p>
+              <p class="font-bold text-slate-800 text-lg">2,214</p>
+          </div>
+          <span class="text-green-500 text-xs font-semibold">+2.5%</span>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg shadow-sm p-5">
+          <p class="text-slate-500 text-xs mb-2">Device</p>
+          <div class="h-40">
+              <canvas id="deviceChart"></canvas>
+          </div>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg shadow-sm p-5">
+          <p class="text-slate-500 text-xs mb-2">Monthly Sales</p>
+          <div class="h-40">
+              <canvas id="barChart"></canvas>
+          </div>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg shadow-sm p-5">
+          <p class="text-slate-500 text-xs mb-2">Traffic Sources</p>
+          <div class="h-40">
+              <canvas id="pieChart"></canvas>
+          </div>
+      </div>
+
+  </div>
+
+</div>
+
+</div>
+</main>
+
+<script>
+// LINE CHART
+new Chart(document.getElementById('analyticsChart'), {
+    type: 'line',
+    data: {
+        labels: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+        datasets: [{
+            label: 'Visitors',
+            data: [12, 19, 15, 25, 22, 30, 28, 35, 45, 40, 48, 52],
+            borderColor: '#3b82f6',
+            backgroundColor: 'rgba(59,130,246,0.1)',
+            fill: true,
+            tension: 0.4,
+            borderWidth: 3,
+            pointRadius: 0,
+            pointHoverRadius: 6
+        }]
+    },
+    options: { responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false}} }
+});
+
+// NEW SUB BAR CHART BELOW LINE
+new Chart(document.getElementById('subBarChart'), {
+    type: 'bar',
+    data: {
+        labels: ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],
+        datasets: [{
+            label: 'New Signups',
+            data: [20, 35, 25, 40, 30, 50, 45],
+            backgroundColor: '#f97316',
+            borderRadius: 6
+        }]
+    },
+    options: {
+        responsive:true,
+        maintainAspectRatio:false,
+        plugins:{legend:{display:false}},
+        scales:{
+            y:{beginAtZero:true},
+            x:{grid:{display:false}}
+        }
+    }
+});
+
+// DEVICE DOUGHNUT
+new Chart(document.getElementById('deviceChart'), {
+    type: 'doughnut',
+    data: {
+        labels: ['Desktop','Mobile','Tablet'],
+        datasets: [{ data:[55,30,15], backgroundColor:['#3b82f6','#10b981','#f59e0b'], borderWidth:0 }]
+    },
+    options:{ responsive:true, maintainAspectRatio:false, plugins:{legend:{position:'bottom', labels:{boxWidth:10,font:{size:10}}}}, cutout:'70%' }
+});
+
+// RIGHT SIDE BAR
+new Chart(document.getElementById('barChart'), {
+    type: 'bar',
+    data: {
+        labels: ['Jan','Feb','Mar','Apr','May','Jun'],
+        datasets:[{ data:[30,45,28,60,50,70], backgroundColor:'#6366f1', borderRadius:6 }]
+    },
+    options:{ responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false}} }
+});
+
+// PIE
+new Chart(document.getElementById('pieChart'), {
+    type:'pie',
+    data:{
+        labels:['Social','Search','Direct'],
+        datasets:[{data:[40,35,25], backgroundColor:['#3b82f6','#22c55e','#f97316']}]
+    },
+    options:{ responsive:true, maintainAspectRatio:false }
+});
+</script>
+
+</body>
+</html>

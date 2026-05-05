@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Нэвтрэх / Бүртгүүлэх</title>
+
+<style>
+body{
+ margin:0;
+ height:100vh;
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ background-image:url("https://images.stockcake.com/public/0/a/7/0a747652-5c53-4ec6-b585-a762490bbf8d_large/galactic-dream-swirl-stockcake.jpg");
+ background-size:cover;
+ background-position:center;
+ background-repeat:no-repeat;
+ font-family:Arial, sans-serif;
+}
+
+input[type="radio"]{
+ display:none;
+}
+
+.box{
+ width:380px;
+ background:rgba(255,255,255,0.15);
+ backdrop-filter:blur(8px);
+ border-radius:20px;
+ padding:40px 30px;
+ box-shadow:0 10px 25px rgba(0,0,0,0.3);
+ color:white;
+ position:relative;
+}
+
+h2{
+ text-align:center;
+ margin-bottom:10px;
+}
+.login form,
+.register form{
+ display:grid;
+ gap:12px;
+ justify-items:center;
+}
+input[type="email"],
+input[type="password"],
+input[type="text"],
+textarea,
+button{
+ width:100%;
+ max-width:300px;
+ padding:10px;
+ border:none;
+ border-radius:6px;
+}
+textarea{
+ height:70px;
+ resize:none;
+}
+button{
+ background:#2e7d32;
+ color:white;
+ font-weight:bold;
+ cursor:pointer;
+}
+
+button:hover{
+ background:#256428;
+}
+
+.switch{
+ text-align:center;
+ margin-top:15px;
+ cursor:pointer;
+ font-size:14px;
+}
+
+.register{
+ display:none;
+}
+
+#register:checked ~ .box .register{
+ display:block;
+}
+
+#register:checked ~ .box .login{
+ display:none;
+}
+
+#login:checked ~ .box .login{
+ display:block;
+}
+
+#login:checked ~ .box .register{
+ display:none;
+}
+</style>
+</head>
+
+<body>
+
+<input type="radio" name="tab" id="login" checked>
+<input type="radio" name="tab" id="register">
+<div class="box">
+<div class="login">
+<h2>Нэвтрэх</h2>
+<form>
+<input type="email" placeholder="Имэйл" required>
+<input type="password" placeholder="Нууц үг" required>
+<textarea placeholder="Тайлбар..."></textarea>
+<button type="submit">НЭВТРЭХ</button>
+</form>
+<div class="switch">
+<label for="register">Бүртгүүлэх</label>
+</div>
+</div>
+<div class="register">
+<h2>Бүртгүүлэх</h2>
+<form>
+<input type="text" placeholder="Бүтэн нэр" required>
+<input type="email" placeholder="Имэйл" required>
+<input type="password" placeholder="Нууц үг" required>
+<input type="password" placeholder="Нууц үг давтах" required>
+<textarea placeholder="Нэмэлт мэдээлэл..."></textarea>
+<button type="submit">БҮРТГҮҮЛЭХ</button>
+</form>
+<div class="switch">
+<label for="login">Нэвтрэх</label>
+</div>
+</div>
+
+</div>
+
+</body>
+</html>

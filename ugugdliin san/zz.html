@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<title>Profile Layout</title>
+
+<style>
+
+
+
+.top-menu {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    gap: 20px; 
+    padding: 10px;
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    background: #6bb6e8;
+}
+
+
+
+.top-menu button {
+    
+    background: #4379a0;
+    padding: 8px 80px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
+
+
+.sidebar {
+    width: 20%;
+    height: 600px;
+    gap: 15px;
+    margin: 5px 5px 5px 5px ;
+    background: #b6dff8;
+    padding: 15px;
+}
+
+.profile-pic {
+    width: 100%;
+    height: 180px;
+    background: #777;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+    margin-top: 20px;
+}
+div {
+    float: left;
+        }
+.info-title {
+    
+    margin-left: 10px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+
+.content {
+    
+    background: #dfeef7;
+    width: 75%;
+    height: 500px;
+    margin: 5px 5px 5px 5px ;
+}
+
+
+.footer {
+    
+    background: #e58c8c;
+    width: 75%;
+    height: 100px;
+    background-color: rgb(222, 172, 222);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5px;
+    margin-bottom: 5px;
+
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+
+
+.h3 {
+  text-align: left;
+}
+
+@media (max-width : 1023px){
+    .container{
+        flex-direction: column;
+        height: auto;
+    }
+    .sidebar{
+        width: 100%;
+    }
+    .profile-pic{
+        height: 250px;
+    }
+    .content{
+        height: 500px;
+    }
+    .top-menu{
+        flex-wrap: wrap;
+    }
+}
+@media (min-width: 767px) {
+  .top-menu{
+    flex-direction: column;
+    align-items: center;
+  }
+  .top-menu button{
+    width: 200px;
+  }
+  .container{
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+  }
+  .profile-pic{
+    height: 200px;
+  }
+  .content{
+    height: 400px;
+  }
+  .footer{
+    font-size: 14px;
+  }
+} 
+</style>
+</head>
+
+<body>
+
+
+<div class="top-menu">
+    <a href="hw1.html" target="tsonh">
+            <button class="button" >lab1</button>
+        </a>
+
+        <a href="img.html" target="tsonh">
+            <button class="button" >Zurag</button>
+        </a>
+
+        <a href="vid.html" target="tsonh">
+            <button class="button">Video</button>
+        </a>
+
+        <a href="mp.html" target="tsonh">
+            <button class="button">Map</button>
+        </a>
+</div>
+
+
+
+   
+    <div class="sidebar">
+        <div class="profile-pic">
+            <img src="https://images.unsplash.com/photo-1587402092301-725e37c70fd8?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHVwcHklMjBkb2d8ZW58MHx8MHx8fDA%3D" alt="" width="100%" height="200px" margin-left="10px">
+        </div>
+
+        <div class="info-title"> <h2>Хувийн мэдээлэл</h2></div>
+        <div style="width: 100%; text-align: center;">UI/UX engineering <hr></div>
+        <div style="width: 100%; text-align: center;">Овог нэр: Бадамгарав Хүслэн<hr></div>
+        <div style="width: 100%; text-align: center;">Нас: 19<hr></div>
+        <div style="width: 100%; text-align: center;">Оюутны код: B25FM1095<hr></div>
+    </div>
+
+
+    <div class="content">
+        <iframe src="" name="tsonh" frameborder="0" width="100%" height="100%" gap="5px" margin-left="5px" margin-right=" 5px"  ></iframe>
+    </div>
+
+
+    <div class="footer">
+       <h3 class="h3">Гэрийн хаяг: <br>Баянзүрх дүүрэг, 13р хороо, Баянзүрх апартмэнт-н 1205</h3>
+    </div>
+
+
+
+</body>
+</html>
+images.unsplash.com

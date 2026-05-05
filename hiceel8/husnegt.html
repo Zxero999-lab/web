@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<title>Хэрэглэгчийн бүртгэл</title>
+
+<style>
+body {
+  font-family: Arial;
+  background: #eee;
+  padding: 30px;
+}
+
+.container {
+  display: flex;
+  gap: 40px;
+}
+
+input {
+  display: block;
+  margin-bottom: 15px;
+  padding: 15px;
+  width: 250px;
+  border-radius: 15px;
+  border: 2px solid #735771;
+}
+
+button {
+  padding: 15px;
+  width: 200px;
+  border-radius: 15px;
+  border: none;
+  background: #a735c7;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+table {
+  border-collapse: collapse;
+  width: 500px;
+}
+
+th, td {
+  border: 2px solid #972c9f;
+  padding: 10px;
+  text-align: center;
+}
+
+.delete-btn {
+  background: #ff5c5c;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Хэрэглэгчийн бүртгэл</h1>
+
+<div class="container">
+
+  <div>           
+    <input type="text" id="ovog" placeholder="Овог">  
+    <input type="text" id="ner" placeholder="Нэр">
+    <input type="number" id="nas" placeholder="Нас">
+
+    <button onclick="addUser()">Бүртгэх</button>
+  </div>
+
+
+  <table id="table">
+    <thead>
+      <tr>
+        <th>№</th>
+        <th>Овог</th>
+        <th>Нэр</th>
+        <th>Нас</th>
+        <th>Үйлдэл</th>
+      </tr>
+    </thead>
+    <tbody id="tbody">
+    </tbody>
+  </table>
+
+</div>
+
+<script>
+function addUser() {
+  
+  let ovog = document.getElementById("ovog").value;
+  let ner = document.getElementById("ner").value;
+  let nas = document.getElementById("nas").value;
+
+  if (ovog === "" || ner === "" || nas === "") {
+    alert("Бүгдийг бөглөнө үү!");
+    return;      
+  }
+
+  let tbody = document.getElementById("tbody");
+
+  let tr = document.createElement("tr");
+
+  let number = tbody.children.length + 1;
+
+
+
+  tr.innerHTML = `
+    <td>${number}</td>
+    <td>${ovog}</td>
+    <td>${ner}</td>
+    <td>${nas}</td>
+    <td><button class="delete-btn">X</button></td>
+  `;
+
+  tbody.appendChild(tr);
+  tr.querySelector(".delete-btn").addEventListener("click", function() {
+    tr.remove(); 
+    updateNumbers(); 
+  });
+  document.getElementById("ovog").value = "";
+  document.getElementById("ner").value = "";
+  document.getElementById("nas").value = "";
+}
+
+function updateNumbers() {
+  let rows = document.querySelectorAll("#tbody tr");
+
+
+  rows.forEach((row, index) => {
+    row.children[0].textContent = index + 1;
+  });
+}
+</script>
+
+</body>
+</html>

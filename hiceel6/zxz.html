@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modal Form жишээ</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .box {
+      border-radius: 12px;
+      height: 60px;
+    }
+    .box-green  { background-color: #2EE87A; }
+    .box-blue   { background-color: #6AAFE6; }
+    .box-red    { background-color: #F06060; }
+    .box-gray   { background-color: #CCCCCC; }
+    
+    /* Товчлуурын хэв маяг */
+    .btn-custom {
+      background-color: #6AAFE6;
+      color: white;
+      border-radius: 8px;
+      padding: 10px 20px;
+      border: none;
+      width: 100%;
+    }
+  </style>
+</head>
+<body class="p-3">
+
+  <div class="mb-4">
+    <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#contactModal">
+      Мэдээлэл илгээх (Modal нээх)
+    </button>
+  </div>
+
+  <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="contactModalLabel">Холбоо барих маягт</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="myForm">
+            <div class="mb-3">
+              <label for="name" class="form-label">Таны нэр</label>
+              <input type="text" class="form-control" id="name" placeholder="Нэрээ оруулна уу" required>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Имэйл хаяг</label>
+              <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
+            </div>
+            <div class="mb-3">
+              <label for="message" class="form-label">Зурвас</label>
+              <textarea class="form-control" id="message" rows="3"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Хаах</button>
+          <button type="submit" form="myForm" class="btn btn-primary">Илгээх</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <h5 class="mb-3">Layout хэсэг</h5>
+  <div class="row g-2 mb-2">
+    <div class="col-6 col-md-4">
+      <div class="box box-green"></div>
+    </div>
+    <div class="col-6 col-md-4">
+      <div class="box box-green"></div>
+    </div>
+    <div class="col-md-4 d-none d-md-block">
+      <div class="box box-blue"></div>
+    </div>
+  </div>
+
+  <div class="row g-2 mb-2">
+    <div class="col-12 d-md-none">
+      <div class="box box-blue"></div>
+    </div>
+    <div class="col-md-6 d-none d-md-block">
+      <div class="box box-red"></div>
+    </div>
+    <div class="col-md-6 d-none d-md-block">
+      <div class="box box-red"></div>
+    </div>
+  </div>
+
+  <div class="row g-2 mb-2">
+    <div class="col-12 d-md-none">
+      <div class="box box-red"></div>
+    </div>
+    <div class="col-12 d-none d-md-block">
+      <div class="box box-gray"></div>
+    </div>
+  </div>
+
+  <div class="row g-2 mb-4 d-md-none">
+    <div class="col-6">
+      <div class="box box-red"></div>
+    </div>
+    <div class="col-6">
+      <div class="box box-gray"></div>
+    </div>
+  </div>
+ 
+  <hr>
+
+  <h5 class="mb-3">2-р Дугаар хэсэг </h5>
+  <div class="d-md-none">
+    <img src="https://img-cdn.hltv.org/gallerypicture/xs6v1Z90Us_0aLB4g4RFxX.jpg?auto=compress&fm=avif&ixlib=java-2.1.0&m=%2Fm.png&mw=160&mx=30&my=710&q=75&w=1200&s=81baae02a17cd12106a98fa9919a7bd4" class="img-fluid mb-2 rounded">
+    <img src="https://img-cdn.hltv.org/gallerypicture/4xLjzr3Xsn1Xty_3R2Yhah.jpg?auto=compress&fm=avif&ixlib=java-2.1.0&q=75&w=500&s=7f402a9249107e7132b03c47af1adf45" alt="s1mple faze" class="img-fluid mb-2 rounded">
+    <img src="https://img-cdn.hltv.org/gallerypicture/NSoZYhIv__b6j7uHlDpd_B.jpg?auto=compress&fm=avif&ixlib=java-2.1.0&q=75&w=500&s=484e7d907c342178297d0f4cef59cfe1" class="img-fluid mb-2 rounded">
+  </div>
+
+  <div id="myCarousel" class="carousel slide d-none d-md-block" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2"></button>
+    </div>
+
+    <div class="carousel-inner rounded">
+      <div class="carousel-item active">
+        <img src="https://img-cdn.hltv.org/gallerypicture/xs6v1Z90Us_0aLB4g4RFxX.jpg?auto=compress&fm=avif&ixlib=java-2.1.0&m=%2Fm.png&mw=160&mx=30&my=710&q=75&w=1200&s=81baae02a17cd12106a98fa9919a7bd4" class="d-block w-100" style="height:260px; object-fit:cover;">
+      </div>
+      <div class="carousel-item">
+        <img src="https://img-cdn.hltv.org/gallerypicture/4xLjzr3Xsn1Xty_3R2Yhah.jpg?auto=compress&fm=avif&ixlib=java-2.1.0&q=75&w=500&s=7f402a9249107e7132b03c47af1adf45" alt="s1mple faze" class="d-block w-100" style="height:260px; object-fit:cover;">
+      </div>
+      <div class="carousel-item">
+        <img src="https://img-cdn.hltv.org/gallerypicture/NSoZYhIv__b6j7uHlDpd_B.jpg?auto=compress&fm=avif&ixlib=java-2.1.0&q=75&w=500&s=484e7d907c342178297d0f4cef59cfe1" class="d-block w-100" style="height:260px; object-fit:cover;">
+      </div>
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+ 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
