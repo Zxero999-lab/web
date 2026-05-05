@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <title>Шагай Уралдаан</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .finish-line { background-image: linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000), linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000); background-size: 20px 20px; background-position: 0 0, 10px 10px; }
+    </style>
+</head>
+<body class="bg-zinc-900 min-h-screen flex items-center justify-center p-4">
+    <div class="w-full max-w-4xl border border-zinc-700 bg-black rounded-lg overflow-hidden shadow-2xl">
+        <div class="flex justify-between items-center p-4 border-b border-zinc-800">
+            <h1 class="text-xl font-bold tracking-widest text-emerald-400">Морь уралдаан</h1>
+            <span class="text-white text-2xl font-mono"></span>
+        </div>
+        <div class="p-8 bg-white text-zinc-900 relative">
+            <div class="flex items-center gap-4 mb-12">
+                <div id="shagai-display" class="flex gap-2 p-3 bg-zinc-100 rounded-lg min-w-[160px] justify-center text-4xl">🦴 🦴 🦴 🦴</div>
+                <button onclick="roll()" id="btn" class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-md font-bold uppercase transition-all active:scale-95">Шагай орхих</button>
+            </div>
+            <div class="relative space-y-24 py-12 border-l-4 border-zinc-200">
+                <div class="relative h-10 flex items-center">
+                    <span class="absolute -left-24 font-bold text-xs uppercase text-zinc-400">Тоглогч 1</span>
+                    <div id="h1" class="absolute left-0 transition-all duration-700 text-5xl" style="left: 0%;">🐎</div>
+                    <div class="w-full h-0.5 border-t-2 border-dashed border-zinc-200 mt-14"></div>
+                </div>
+                <div class="relative h-10 flex items-center">
+                    <span class="absolute -left-24 font-bold text-xs uppercase text-zinc-400">Тоглогч 2</span>
+                    <div id="h2" class="absolute left-0 transition-all duration-700 text-5xl" style="left: 0%;">🐎</div>
+                    <div class="w-full h-0.5 border-t-2 border-dashed border-zinc-200 mt-14"></div>
+                </div>
+                <div class="absolute right-10 top-0 bottom-0 w-10 finish-line opacity-10 border-l border-r border-zinc-300"></div>
+            </div>
+            <div id="msg" class="mt-12 text-center text-lg font-medium text-zinc-600 italic">Тоглогч 1-ийн ээлж</div>
+        </div>
+        <div class="p-4 bg-zinc-900 flex justify-between items-center text-white font-bold italic">
+            <div>Horse <span class="text-zinc-500 mx-2"></span> race</div>
+        </div>
+    </div>
+
+    <script>
+        let pos1 = 0, pos2 = 0, turn = 1;
+        const goal = 8, types = ['🐎', '🐑', '🐫', '🐐'];
+        
+        function roll() {
+            const btn = document.getElementById('btn');
+            btn.disabled = true;
+            let horses = 0, res = [];
+            
+            for(let i=0; i<4; i++) {
+                const r = types[Math.floor(Math.random()*4)];
+                res.push(r);
+                if(r === '🐎') horses++;
+            }
+            
+            document.getElementById('shagai-display').innerText = res.join(' ');
+            
+            setTimeout(() => {
+                if(turn === 1) {
+                    pos1 += horses;
+                    document.getElementById('h1').style.left = Math.min((pos1/goal)*85, 85) + '%';
+                    if(pos1 >= goal) return win(1);
+                    turn = 2;
+                } else {
+                    pos2 += horses;
+                    document.getElementById('h2').style.left = Math.min((pos2/goal)*85, 85) + '%';
+                    if(pos2 >= goal) return win(2);
+                    turn = 1;
+                }
+                document.getElementById('msg').innerText = `Тоглогч ${turn}-ийн ээлж (${horses} морь буулаа)`;
+                btn.disabled = false;
+            }, 400);
+        }
+
+        function win(p) {
+            document.getElementById('msg').innerHTML = `<b class="text-emerald-600 text-2xl italic text-center block">🎉 ТОГЛОГЧ ${p} ТҮРҮҮЛЛЭЭ!</b>`;
+            document.getElementById('btn').remove();
+        }
+    </script>
+</body>
+</html>
